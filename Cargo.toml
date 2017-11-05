@@ -1,0 +1,9 @@
+[package]
+name = "cask-cli"
+version = "0.1.0"
+authors = ["Kenjiro Nakayama <nakayamakenjiro@gmail.com>"]
+
+[dependencies]
+clap = "~2.27"
+cask = "0.7.0"
+shrust = "0.0.4"
