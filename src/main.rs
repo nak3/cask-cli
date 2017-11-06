@@ -9,42 +9,44 @@ use std::sync::Arc;
 
 mod operation;
 
+/// Run initiates batch or interactive operations.
 fn run() -> Result<()> {
     let app = App::new("cask-cli")
         .version("1.0")
         .about(
             "cask-cli is a command line interface for cask key value store.",
         )
+        .arg(
+            Arg::with_name("db")
+                .help("specify database directory. default \"cask.db\"")
+                .long("db")
+                .takes_value(true),
+        )
         .subcommand(
             SubCommand::with_name("get")
                 .about("get the value from specified key.")
-                .arg_from_usage("-d, --db 'Specified database directory'")
                 .arg(Arg::with_name("key")),
-//                .arg(Arg::with_name("key").takes_value(true)),
         )
         .subcommand(
             SubCommand::with_name("put")
                 .about("put the value with specified key.")
-                .arg_from_usage("-d, --db 'Specified database directory'")
                 .arg(Arg::with_name("key"))
                 .arg(Arg::with_name("value")),
         )
         .subcommand(
             SubCommand::with_name("delete")
                 .about("delete the value with specified key.")
-                .arg_from_usage("-d, --db 'Specified database directory'")
                 .arg(Arg::with_name("key")),
         )
         .get_matches();
 
+    let db = app.value_of("db").unwrap_or("cask.db");
     let cask = Arc::new(CaskOptions::default()
         .compaction_check_frequency(1200)
         .sync(SyncStrategy::Interval(5000))
         .max_file_size(1024 * 1024 * 1024)
-//        .create(true)
-        .create(false)
-        .open("cask.db")?);
-
+        .create(true)
+        .open(db)?);
 
     // get
     if let Some(ref matches) = app.subcommand_matches("get") {
