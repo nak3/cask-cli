@@ -5,5 +5,5 @@ authors = ["Kenjiro Nakayama <nakayamakenjiro@gmail.com>"]
 
 [dependencies]
 clap = "~2.27"
-cask = "0.7.0"
+cask = { git = "https://github.com/andresilva/cask" }
 shrust = "0.0.4"

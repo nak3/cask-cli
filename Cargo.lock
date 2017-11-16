@@ -34,7 +34,8 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
 name = "cask"
-version = "0.7.0"
+version = "0.7.1"
+source = "git+https://github.com/andresilva/cask#f6cfae9fd14ac53ec98590d6133d04cadaee26b0"
 dependencies = [
  "byteorder 1.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "fs2 0.4.2 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -49,7 +50,7 @@ dependencies = [
 name = "cask-cli"
 version = "0.1.0"
 dependencies = [
- "cask 0.7.0",
+ "cask 0.7.1 (git+https://github.com/andresilva/cask)",
  "clap 2.27.1 (registry+https://github.com/rust-lang/crates.io-index)",
  "shrust 0.0.4 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
@@ -308,6 +309,7 @@ dependencies = [
 "checksum atty 0.2.3 (registry+https://github.com/rust-lang/crates.io-index)" = "21e50800ec991574876040fff8ee46b136a53e985286fbe6a3bdfe6421b78860"
 "checksum bitflags 0.9.1 (registry+https://github.com/rust-lang/crates.io-index)" = "4efd02e230a02e18f92fc2735f44597385ed02ad8f831e7c1c1156ee5e1ab3a5"
 "checksum byteorder 1.0.0 (registry+https://github.com/rust-lang/crates.io-index)" = "c40977b0ee6b9885c9013cd41d9feffdd22deb3bb4dc3a71d901cc7a77de18c8"
+"checksum cask 0.7.1 (git+https://github.com/andresilva/cask)" = "<none>"
 "checksum cc 1.0.3 (registry+https://github.com/rust-lang/crates.io-index)" = "a9b13a57efd6b30ecd6598ebdb302cca617930b5470647570468a65d12ef9719"
 "checksum clap 2.27.1 (registry+https://github.com/rust-lang/crates.io-index)" = "1b8c532887f1a292d17de05ae858a8fe50a301e196f9ef0ddb7ccd0d1d00f180"
 "checksum cmake 0.1.26 (registry+https://github.com/rust-lang/crates.io-index)" = "357c07e7a1fc95732793c1edb5901e1a1f305cfcf63a90eb12dbd22bdb6b789d"
